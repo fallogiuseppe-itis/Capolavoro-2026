@@ -1,780 +1,941 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Campo Scuola</title>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
+  <title>Campo Scuola</title>
 
-      body {
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-          url("campo scuola1.jpeg") center/cover fixed;
-        color: white;
-      }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
 
-      /* HOME */
-      .home {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-      .home h1 {
-        font-size: 60px;
-        letter-spacing: 4px;
-        margin-bottom: 10px;
-      }
+    body {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.5)),
+        url("campo scuola1.jpeg") center/cover fixed;
 
-      .home p {
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 18px;
-      }
+      color: white;
+    }
 
-      /* MENU */
-      .menu {
-        display: grid;
-        grid-template-columns: repeat(2, 200px);
-        gap: 10px;
-      }
+    /* HOME */
 
-      .menu button {
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(5px);
-        color: white;
-        cursor: pointer;
-      }
+    .home {
+      height: 100vh;
 
-      .menu button:hover {
-        background: #1565c0;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-      /* SEZIONI */
-      .content {
-        display: none;
-        min-height: 100vh;
-        padding: 50px;
-      }
+      text-align: center;
+    }
 
-      /* CARD VETRO COME ORIGINALE */
-      .card {
-        background: rgba(255, 255, 255, 0.12);
-        padding: 30px;
-        border-radius: 20px;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        max-width: 800px;
-        margin: auto;
-        color: white;
-      }
+    .home h1 {
+      font-size: 60px;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
 
-      h2 {
-        margin-bottom: 15px;
-      }
+    .home p {
+      margin-bottom: 30px;
+    }
 
-      p,
-      li {
-        font-size: 16px;
-        line-height: 1.6;
-      }
+    /* MENU */
 
-      ul {
-        margin-left: 20px;
-        margin-top: 10px;
-      }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 220px);
+      gap: 10px;
+    }
 
-      .back {
-        margin-top: 15px;
-        padding: 8px 15px;
-        border: none;
-        background: #1565c0;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    .menu button {
+      padding: 12px;
 
-      /* CAROSELLO */
-      .carousel-container {
-        position: relative;
-        max-width: 100%;
-        margin: 20px auto;
-        overflow: hidden;
-        border-radius: 10px;
-      }
+      border: none;
+      border-radius: 10px;
 
-      .carousel-slide {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
+      background: rgba(255, 255, 255, 0.15);
 
-      .carousel-slide img {
-        width: 100%;
-        height: 500px;
-        flex-shrink: 0;
-        object-fit: cover;
-        border-radius: 10px;
-      }
+      backdrop-filter: blur(5px);
 
-      .carousel-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        font-size: 20px;
-        border-radius: 50%;
-        transition: 0.3s;
-      }
+      color: white;
 
-      .carousel-btn:hover {
-        background: rgba(0, 0, 0, 0.8);
-      }
+      cursor: pointer;
 
-      .prev {
-        left: 10px;
-      }
-      .next {
-        right: 10px;
-      }
+      transition: 0.3s;
+    }
 
-      /* TASTO ISCRIZIONE */
-      .btn-iscrizione {
-        grid-column: 1 / -1;
-        padding: 14px;
-        border: none;
-        border-radius: 8px;
-        background: linear-gradient(135deg, #1565c0, #42a5f5);
-        color: white;
-        font-size: 16px;
-        font-weight: 400;
-        cursor: pointer;
-        letter-spacing: 1px;
-        transition: 0.3s;
-        box-shadow: 0 4px 20px rgba(21, 101, 192, 0.4);
-      }
+    .menu button:hover {
+      background: #1565c0;
+    }
 
-      .btn-iscrizione:hover {
-        background: linear-gradient(135deg, #0d47a1, #1e88e5);
-        transform: translateY(-2px);
-      }
+    /* BOTTONE ISCRIZIONE */
 
-      /* MODALE ISCRIZIONE */
-      .modal-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(6px);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-      }
+    .btn-iscrizione {
+      grid-column: 1 / -1;
 
-      .modal-overlay.open {
-        display: flex;
-      }
+      background:
+        linear-gradient(135deg,
+          #1565c0,
+          #42a5f5);
 
-      .modal-box {
-        background: rgba(255, 255, 255, 0.13);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 20px;
-        padding: 35px 40px;
-        width: 90%;
-        max-width: 480px;
-        color: white;
-        position: relative;
-        animation: slideUp 0.3s ease;
-      }
+      font-weight: 600;
+    }
 
-      @keyframes slideUp {
-        from {
-          transform: translateY(40px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
+    .btn-iscrizione:hover {
+      background:
+        linear-gradient(135deg,
+          #0d47a1,
+          #1e88e5);
 
-      .modal-box h2 {
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 6px;
-      }
+      transform: translateY(-2px);
+    }
 
-      .modal-box .subtitle {
-        text-align: center;
-        font-size: 13px;
-        opacity: 0.7;
-        margin-bottom: 22px;
-      }
+    /* SEZIONI */
 
-      .modal-box label {
-        display: block;
-        font-size: 13px;
-        margin-bottom: 4px;
-        opacity: 0.85;
-      }
+    .content {
+      display: none;
 
-      .modal-box input,
-      .modal-box textarea {
-        width: 100%;
-        padding: 10px 14px;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        font-family: "Poppins", sans-serif;
-        font-size: 14px;
-        margin-bottom: 14px;
-        outline: none;
-        transition: border 0.2s;
-      }
+      min-height: 100vh;
 
-      .modal-box input::placeholder,
-      .modal-box textarea::placeholder {
-        color: rgba(255, 255, 255, 0.45);
-      }
+      padding: 50px;
+    }
 
-      .modal-box input:focus,
-      .modal-box textarea:focus {
-        border-color: #42a5f5;
-      }
+    .card {
+      background:
+        rgba(255, 255, 255, 0.12);
 
-      .modal-box .row-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
+      padding: 30px;
 
-      .modal-box .btn-invia {
-        width: 100%;
-        padding: 12px;
-        background: linear-gradient(135deg, #1565c0, #42a5f5);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s;
-        margin-top: 4px;
-      }
+      border-radius: 20px;
 
-      .modal-box .btn-invia:hover {
-        opacity: 0.85;
-      }
+      backdrop-filter: blur(15px);
 
-      .modal-close {
-        position: absolute;
-        top: 14px;
-        right: 18px;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 22px;
-        cursor: pointer;
-        opacity: 0.7;
-      }
+      border:
+        1px solid rgba(255, 255, 255, 0.15);
 
-      .modal-close:hover {
-        opacity: 1;
-      }
+      max-width: 900px;
 
-      .toast {
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%) translateY(80px);
-        background: #1565c0;
-        color: white;
-        padding: 12px 28px;
-        border-radius: 30px;
-        font-weight: 600;
-        font-size: 14px;
-        z-index: 2000;
-        transition:
-          transform 0.4s ease,
-          opacity 0.4s ease;
-        opacity: 0;
-        pointer-events: none;
-      }
+      margin: auto;
+    }
 
-      .toast.show {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-      }
+    h2 {
+      margin-bottom: 15px;
+    }
 
-      /* LISTA ISCRITTI */
-      .lista-iscritti {
-        margin-top: 20px;
-        width: 420px;
-        max-width: 90vw;
-      }
+    p,
+    li {
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-      .lista-iscritti h3 {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        opacity: 0.6;
-        margin-bottom: 8px;
-      }
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
 
-      .lista-scroll {
-        max-height: 140px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding-right: 4px;
-      }
+    .back {
+      margin-top: 20px;
 
-      /* scrollbar sottile */
-      .lista-scroll::-webkit-scrollbar { width: 4px; }
-      .lista-scroll::-webkit-scrollbar-track { background: transparent; }
-      .lista-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+      padding: 10px 16px;
 
-      .iscritto-chip {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 30px;
-        padding: 7px 16px;
-        font-size: 14px;
-        animation: fadeIn 0.3s ease;
-      }
+      border: none;
+      border-radius: 8px;
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(8px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
+      background: #1565c0;
 
-      .iscritto-avatar {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #1565c0, #42a5f5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        font-weight: 700;
-        flex-shrink: 0;
-      }
+      color: white;
 
-      .iscritto-nome {
-        flex: 1;
-        font-weight: 500;
-      }
+      cursor: pointer;
+    }
 
-      .iscritto-data {
-        font-size: 11px;
-        opacity: 0.5;
-      }
+    /* CAROSELLO */
 
-      .lista-vuota {
-        text-align: center;
-        opacity: 0.45;
-        font-size: 13px;
-        padding: 10px 0;
-      }
-    </style>
-  </head>
+    .carousel-container {
+      position: relative;
 
-  <body>
-    <div class="home" id="home">
-      <h1>CAMPO SCUOLA</h1>
-      <p>Dai giovani e per i giovani</p>
+      max-width: 100%;
 
-      <div class="menu">
-        <button onclick="show('intro')">Introduzione</button>
-        <button onclick="show('storia')">La Storia</button>
-        <button onclick="show('format')">Il Format</button>
-        <button onclick="show('animatori')">Gruppo Animatori</button>
-        <button onclick="show('esperienza')">La Mia Esperienza</button>
-        <button onclick="show('galleria')">Galleria</button>
-        <button class="btn-iscrizione" onclick="apriIscrizione()">
-          Iscriviti al Campo Scuola
+      margin: 20px auto;
+
+      overflow: hidden;
+
+      border-radius: 12px;
+    }
+
+    .carousel-slide {
+      display: flex;
+
+      transition:
+        transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 500px;
+
+      flex-shrink: 0;
+
+      object-fit: cover;
+
+      border-radius: 12px;
+    }
+
+    /* FRECCE */
+
+    .carousel-btn {
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      background:
+        rgba(0, 0, 0, 0.5);
+
+      color: white;
+
+      border: none;
+
+      padding: 10px 15px;
+
+      cursor: pointer;
+
+      font-size: 20px;
+
+      border-radius: 50%;
+
+      transition: 0.3s;
+    }
+
+    .carousel-btn:hover {
+      background:
+        rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /* COUNTER INSTAGRAM */
+
+    .foto-counter {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      z-index: 10;
+
+      background:
+        rgba(0, 0, 0, 0.6);
+
+      color: white;
+
+      padding: 6px 14px;
+
+      border-radius: 20px;
+
+      font-size: 14px;
+
+      backdrop-filter: blur(5px);
+    }
+
+    /* MODALE */
+
+    .modal-overlay {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      background:
+        rgba(0, 0, 0, 0.6);
+
+      backdrop-filter: blur(6px);
+
+      z-index: 1000;
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background:
+        rgba(255, 255, 255, 0.13);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.2);
+
+      backdrop-filter: blur(20px);
+
+      border-radius: 20px;
+
+      padding: 35px 40px;
+
+      width: 90%;
+      max-width: 480px;
+
+      color: white;
+
+      position: relative;
+    }
+
+    .modal-box h2 {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+
+      font-size: 13px;
+
+      opacity: 0.7;
+
+      margin-bottom: 22px;
+    }
+
+    .row-2 {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .modal-box label {
+      display: block;
+
+      font-size: 13px;
+
+      margin-bottom: 4px;
+    }
+
+    .modal-box input,
+    .modal-box textarea {
+      width: 100%;
+
+      padding: 10px 14px;
+
+      border-radius: 8px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+      background:
+        rgba(255, 255, 255, 0.1);
+
+      color: white;
+
+      margin-bottom: 14px;
+
+      outline: none;
+    }
+
+    .modal-box input::placeholder,
+    .modal-box textarea::placeholder {
+      color:
+        rgba(255, 255, 255, 0.45);
+    }
+
+    .btn-invia {
+      width: 100%;
+
+      padding: 12px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      background:
+        linear-gradient(135deg,
+          #1565c0,
+          #42a5f5);
+
+      color: white;
+
+      cursor: pointer;
+
+      font-weight: 600;
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 14px;
+      right: 18px;
+
+      background: none;
+      border: none;
+
+      color: white;
+
+      font-size: 22px;
+
+      cursor: pointer;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+
+      bottom: 30px;
+      left: 50%;
+
+      transform:
+        translateX(-50%) translateY(80px);
+
+      background: #1565c0;
+
+      color: white;
+
+      padding: 12px 28px;
+
+      border-radius: 30px;
+
+      font-weight: 600;
+
+      opacity: 0;
+
+      transition: 0.4s;
+
+      z-index: 2000;
+    }
+
+    .toast.show {
+      transform:
+        translateX(-50%) translateY(0);
+
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HOME -->
+
+  <div class="home" id="home">
+
+    <h1>CAMPO SCUOLA</h1>
+
+    <p>Dai giovani e per i giovani</p>
+
+    <div class="menu">
+
+      <button onclick="show('intro')">
+        Introduzione
+      </button>
+
+      <button onclick="show('storia')">
+        La Storia
+      </button>
+
+      <button onclick="show('format')">
+        Il Format
+      </button>
+
+      <button onclick="show('animatori')">
+        Gruppo Animatori
+      </button>
+
+      <button onclick="show('esperienza')">
+        La Mia Esperienza
+      </button>
+
+      <button onclick="show('galleria')">
+        Galleria
+      </button>
+
+      <button class="btn-iscrizione"
+        onclick="apriIscrizione()">
+
+        Iscriviti al Campo Scuola
+
+      </button>
+
+    </div>
+  </div>
+
+  <!-- INTRO -->
+
+  <div class="content" id="intro">
+
+    <div class="card">
+
+      <h2>Introduzione</h2>
+
+      <p>
+       Il campo scuola è un momento di aggregazione tra giovani e bambini,in cui si concentrano giochi,
+       risate e anche pianti tutto però con un base di preghiera con l'obiettivo di avvicinare i bambini alla fede cristiana.
+      </p>
+
+      <button class="back"
+        onclick="back()">
+
+        Torna alla Home
+
+      </button>
+
+    </div>
+  </div>
+
+  <!-- STORIA -->
+
+  <div class="content" id="storia">
+
+    <div class="card">
+
+      <h2>La Storia</h2>
+
+      <p>
+        Nei primi anni del nuovo millennio era necessario trovare soluzioni nuove per portare alle nuove generazioni il messaggio che la Chiesa trasmette da sempre.
+        Ma come? Tutto nasce da un idea di un giovane sacerdote, allora viceparroco di Santo Stefano di Camastra,Padre Giuseppe di Martino.
+        Nell'estate del 2004 un piccolo gruppo di giovani investì le proprie energie per organizzare quattro giornate in cui ragazze e ragazzi delle scuole medie si riunissere lontano da casa.
+        La formula comprendeva momenti di riflessione,di divertimento, convivialità e preghiera comune.
+        Negli anni la proposta coinvolse anche bambini più piccoli,portando gli animatori a organizzare 2 campi,
+        uno per i bambini delle scuole medie e uno per quelli delle elementari.
+      </p>
+
+      <button class="back"
+        onclick="back()">
+
+        Torna alla Home
+
+      </button>
+
+    </div>
+  </div>
+
+  <!-- FORMAT -->
+
+  <div class="content" id="format">
+
+    <div class="card">
+<h2>Il Format</h2>
+ <p> <strong>
+  Recita:</strong> Le Attività della giornata cominciano con la recita in cui i bambini sono invitati a seguire le vicende di una storia messa in scena dagli animatori. 
+  Serve a far capire ai bambini tramite queste scenette il tema del campo in corso portando i bambini a migliorare le loro capacità di ascolto e attenzione. </p>
+ <p> <strong>
+  Attività:</strong> In seguito alla recita si svolgono delle attività di riflessione portando Bambini e Animatori della stessa squadra a interrogarsi su se stessi. 
+  Questo li porta a dialogare tra loro sconfiggendo timidezza e pregiudizi. </p> 
+  <p> <strong>
+    Giochi:</strong> Ora è il momento di divertirsi un po'. Nelle ore più calde della giornata i bambini sono chiamati a cimentarsi in vari giochi di squadra. 
+    Così facendo sono spinti a mettersi in gioco sfidando se stessi e gli altri in una competizione sana </p> 
+    <p> <strong>
+      Momenti Liturgici:</strong> Il cuore pulsante di tutte le attività giornaliere sono tutti i momenti in cui preghiamo:la messa,le preghiere durante tutta la giornata e soprattutto l'adorazione dell'ultima notte. 
+      Cercando di far tornare a casa i bambini con un bel ricordo del campo scuola e sperando che siano testimoni con i propri familiari e amici. </p>
+
+      <button class="back"
+        onclick="back()">
+
+        Torna alla Home
+
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ANIMATORI -->
+
+  <div class="content" id="animatori">
+
+    <div class="card">
+<h2>Gruppo Animatori</h2> <p> Il Gruppo Animatori è formato da circa 40 ragazze e ragazzi di età compresa tra i 14 e i 30 anni. 
+  I ruoli principali sono: 
+</p> <ul> <li> L'Arbitro:Ha il compito di gestire:giochi,tempi,le attività e infine che tutto venga svolto con serietà e nel migliore dei modi.
+   </li> <li> I capi squadra:Devono assicurarsi che all'interno della propria squadra, bambini e animatori stiano bene insieme.
+   </li> <li> Vari Responsabili:Devono assolvere le varie responsabilità tra cui(giochi,attività,liturgia,casa,amplificazione). 
+   </li> <li> Le nuove leve:Ma non è meno importante questo ruolo perché sono a più stretto contatto con i ragazzi. 
+
+      <button class="back"
+        onclick="back()">
+
+        Torna alla Home
+
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ESPERIENZA -->
+  <h2>La Mia Esperienza</h2> 
+  <p>La Mia Esperienza</p> 
+  <p> Tutto cominciò nel 2022 quando un mio caro amico mi spinse a fare il campo e fui accolto da questa meravigliosa e grandissima famiglia. 
+    Qui ho ritrovato me stesso in una veste nuova, non più il ragazzo che si nascondeva in quello che gli altri volevano da lui ma piuttosto un ragazzo autentico, più consapevole delle sue qualità.questa esperienza mi ha portato negli anni a fare altre esperienze simili come il catechista,il portantino, membro del comitato di Maria SS.Addolorata e altre mille cose. 
+  </p> <button class="back" onclick="back()">Torna alla Home</button> </div> </div>
+
+  <!-- GALLERIA -->
+
+  <div class="content" id="galleria">
+
+    <div class="card"
+      style="max-width: 950px;">
+
+      <h2>Galleria</h2>
+
+      <div class="carousel-container">
+
+        <!-- COUNTER -->
+
+        <div class="foto-counter"
+          id="fotoCounter">
+
+          1 / 12
+
+        </div>
+
+        <!-- FOTO -->
+
+        <div class="carousel-slide"
+          id="carouselSlide">
+
+          <img src="immagini/foto1.jpeg"
+            alt="Foto 1" />
+
+          <img src="immagini/foto2.jpeg"
+            alt="Foto 2" />
+
+          <img src="immagini/foto3.jpeg"
+            alt="Foto 3" />
+
+          <img src="immagini/foto4.jpeg"
+            alt="Foto 4" />
+
+          <img src="immagini/foto5.jpeg"
+            alt="Foto 5" />
+
+          <img src="immagini/foto9.jpeg"
+            alt="Foto 6" />
+
+          <img src="immagini/foto 7.jpg"
+            alt="Foto 7" />
+
+          <img src="immagini/foto12.jpeg"
+            alt="Foto 8" />
+
+          <img src="immagini/foto13.jpeg"
+            alt="Foto 9" />
+
+          <img src="immagini/foto14.jpeg"
+            alt="Foto 10" />
+
+          <img src="immagini/foto15.jpeg"
+            alt="Foto 11" />
+
+          <img src="immagini/foto16.jpeg"
+            alt="Foto 12" />
+
+        </div>
+
+        <!-- FRECCE -->
+
+        <button class="carousel-btn prev"
+          onclick="moveSlide(-1)">
+
+          &#10094;
+
         </button>
+
+        <button class="carousel-btn next"
+          onclick="moveSlide(1)">
+
+          &#10095;
+
+        </button>
+
       </div>
 
-      <!-- LISTA ISCRITTI -->
-      <div class="lista-iscritti">
-        <h3>Iscritti</h3>
-        <div class="lista-scroll" id="listaIscritti">
-          <p class="lista-vuota">Nessun iscritto ancora.</p>
-        </div>
-      </div>
+      <button class="back"
+        onclick="back()">
+
+        Torna alla Home
+
+      </button>
+
     </div>
+  </div>
 
-    <!-- MODALE ISCRIZIONE -->
-    <div class="modal-overlay" id="modalIscrizione">
-      <div class="modal-box">
-        <button class="modal-close" onclick="chiudiIscrizione()">X</button>
-        <h2>Iscrizione</h2>
-        <p class="subtitle">Compila il modulo per iscriverti al Campo Scuola</p>
+  <!-- MODALE ISCRIZIONE -->
 
-        <form id="formIscrizione" onsubmit="salvaIscrizione(event)">
-          <div class="row-2">
-            <div>
-              <label for="iscNome">Nome *</label>
-              <input id="iscNome" type="text" placeholder="Mario" required />
-            </div>
-            <div>
-              <label for="iscCognome">Cognome *</label>
-              <input id="iscCognome" type="text" placeholder="Rossi" required />
-            </div>
+  <div class="modal-overlay"
+    id="modalIscrizione">
+
+    <div class="modal-box">
+
+      <button class="modal-close"
+        onclick="chiudiIscrizione()">
+
+        X
+
+      </button>
+
+      <h2>Iscrizione</h2>
+
+      <p class="subtitle">
+        Compila il modulo per iscriverti
+        al Campo Scuola
+      </p>
+
+      <form id="formIscrizione"
+        onsubmit="salvaIscrizione(event)">
+
+        <div class="row-2">
+
+          <div>
+
+            <label>Nome *</label>
+
+            <input type="text"
+              placeholder="Mario"
+              required />
+
           </div>
 
-          <div class="row-2">
-            <div>
-              <label for="iscEta">Età *</label>
-              <input
-                id="iscEta"
-                type="number"
-                placeholder="14"
-                min="6"
-                max="99"
-                required
-              />
-            </div>
-            <div>
-              <label for="iscTelefono">Telefono</label>
-              <input
-                id="iscTelefono"
-                type="tel"
-                placeholder="+39 000 0000000"
-              />
-            </div>
+          <div>
+
+            <label>Cognome *</label>
+
+            <input type="text"
+              placeholder="Rossi"
+              required />
+
           </div>
 
-          <label for="iscEmail">Email</label>
-          <input id="iscEmail" type="email" placeholder="mario@email.com" />
-
-          <label for="iscNote">Note aggiuntive</label>
-          <textarea
-            id="iscNote"
-            rows="3"
-            placeholder="Allergie, esigenze particolari..."
-          ></textarea>
-
-          <button class="btn-invia" type="submit">Invia iscrizione</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- TOAST NOTIFICA -->
-    <div class="toast" id="toast">Iscrizione salvata!</div>
-
-    <div class="content" id="intro">
-      <div class="card">
-        <h2>Introduzione</h2>
-        <p>
-          Il campo scuola è un momento di aggregazione tra giovani e bambini, in
-          cui si concentrano giochi,risate e anche pianti tutto però con un base
-          di preghiera con l'obbiettivo di avvicinare i bambini alla fede
-          cristiana.
-        </p>
-        <button class="back" onclick="back()">Torna alla Home</button>
-      </div>
-    </div>
-
-    <div class="content" id="storia">
-      <div class="card">
-        <h2>La Storia</h2>
-        <p>
-          Nei primi anni del nuovo millennio era necessario trovare soluzioni
-          nuove per portare alle nuove generazioni il messaggio che la Chiesa
-          trasmette da sempre. Ma come? Tutto nasce da un idea di un giovane
-          sacerdote, allora viceparroco di Santo Stefano di Camastra,Padre
-          Giuseppe di Martino.Nell'estate del 2004 un piccolo gruppo di giovani
-          investì le proprie energie per organizzare quattro giornate in cui
-          ragazze e ragazzi delle scuole medie si riunissere lontano da casa. La
-          formula comprendeva momenti di riflessione,di divertimento,
-          convivialità e preghiera comune. Negli anni la proposta coinvolse
-          anche bambini più piccoli,portando gli animatori a organizzare 2
-          campi,uno per i bambini delle scuole medie e uno per quelli delle
-          elementari.
-        </p>
-        <button class="back" onclick="back()">Torna alla Home</button>
-      </div>
-    </div>
-
-    <div class="content" id="format">
-      <div class="card">
-        <h2>Il Format</h2>
-
-        <p>
-          <strong>Recita:</strong> Le Attività della giornata cominciano con la
-          recita in cui i bambini sono invitati a seguire le vicende di una
-          storia messa in scena dagli animatori. Serve a far capire ai bambini
-          tramite queste scenette il tema del campo in corso portando i bambini
-          a migliorare le loro capacità di ascolto e attenzione.
-        </p>
-
-        <p>
-          <strong>Attività:</strong> In seguito alla recita si svolgono delle
-          attività di riflessione portando Bambini e Animatori della stessa
-          squadra a interrogarsi su se stessi. Questo li porta a dialogare tra
-          loro sconfiggendo timidezza e pregiudizi.
-        </p>
-
-        <p>
-          <strong>Giochi:</strong> Ora è il momento di divertirsi un po'. Nelle
-          ore più calde della giornata i bambini sono chiamati a cimentarsi in
-          vari giochi di squadra. Così facendo sono spinti a mettersi in gioco
-          sfidando se stessi e gli altri in una competizione sana
-        </p>
-
-        <p>
-          <strong>Momenti Liturgici:</strong> Il cuore pulsante di tutte le
-          attività giornaliere sono tutti i momenti in cui preghiamo:la messa,le
-          preghiere durante tutta la giornata e soprattutto l'adorazione
-          dell'ultima notte. Cercando di far tornare a casa i bambini con un bel
-          ricordo del campo scuola e sperando che siano testimoni con i propri
-          familiari e amici.
-        </p>
-
-        <button class="back" onclick="back()">Torna alla Home</button>
-      </div>
-    </div>
-
-    <div class="content" id="animatori">
-      <div class="card">
-        <h2>Gruppo Animatori</h2>
-
-        <p>
-          Il Gruppo Animatori è formato da circa 40 ragazze e ragazzi di età
-          compresa tra i 14 e i 30 anni. I ruoli principali sono:
-        </p>
-
-        <ul>
-          <li>
-            L'Arbitro: Ha il compito di gestire:giochi,tempi,le attività e
-            infine che tutto venga svolto con serietà e nel migliore dei modi.
-          </li>
-          <li>
-            I capi squadra: Devono assicurarsi che all'interno della propria
-            squadra, bambini e animatori stiano bene insieme.
-          </li>
-          <li>
-            Vari Responsabili: Devono assolvere le varie responsabilità tra
-            cui(giochi,attività,liturgia,casa,amplificazione).
-          </li>
-          <li>
-            Le nuove leve: Ma non è meno importante questo ruolo perché sono a
-            più stretto contatto con i ragazzi.
-          </li>
-        </ul>
-
-        <button class="back" onclick="back()">Torna alla Home</button>
-      </div>
-    </div>
-
-    <div class="content" id="esperienza">
-      <div class="card">
-        <h2>La Mia Esperienza</h2>
-
-        <p>La Mia Esperienza</p>
-
-        <p>
-          Tutto cominciò nel 2022 quando un mio caro amico mi spinse a fare il
-          campo e fui accolto da questa meravigliosa e grandissima famiglia. Qui
-          ho ritrovato me stesso in una veste nuova, non più il ragazzo che si
-          nascondeva in quello che gli altri volevano da lui ma piuttosto un
-          ragazzo autentico, più consapevole delle sue qualità.questa esperienza
-          mi ha portato negli anni a fare altre esperienze simili come il
-          catechista,il portantino, membro del comitato di Maria SS.Addolorata e
-          altre mille cose.
-        </p>
-
-        <button class="back" onclick="back()">Torna alla Home</button>
-      </div>
-    </div>
-
-    <div class="content" id="galleria">
-      <div class="card" style="max-width: 900px">
-        <h2>Galleria</h2>
-        <p>
-          Aggiungi all'interno del codice tutte le immagini che vuoi, il
-          carosello si adatterà in automatico!
-        </p>
-
-        <div class="carousel-container">
-          <div class="carousel-slide" id="carouselSlide">
-            <img src="immagini/foto1.jpeg" alt="Foto 1" />
-            <img src="immagini/foto2.jpeg" alt="Foto 2" />
-            <img src="immagini/foto3.jpeg" alt="Foto 3" />
-            <img src="immagini/foto4.jpeg" alt="Foto 4" />
-            <img src="immagini/foto5.jpeg" alt="Foto 5" />
-            <img src="immagini/foto9.jpeg" alt="Foto 9" />
-            <img src="immagini/foto10.jpeg" alt="Foto 10" />
-            <img src="immagini/foto12.jpeg" alt="Foto 12" />
-            <img src="immagini/foto13.jpeg" alt="Foto 13" />
-            <img src="immagini/foto14.jpeg" alt="Foto 14" />
-            <img src="immagini/foto15.jpeg" alt="Foto 15" />
-            <img src="immagini/foto16.jpeg" alt="Foto 16" />
-          </div>
-          <button class="carousel-btn prev" onclick="moveSlide(-1)">
-            &#10094;
-          </button>
-          <button class="carousel-btn next" onclick="moveSlide(1)">
-            &#10095;
-          </button>
         </div>
 
-        <button class="back" onclick="back()">Torna alla Home</button>
-      </div>
+        <div class="row-2">
+
+          <div>
+
+            <label>Età *</label>
+
+            <input type="number"
+              placeholder="14"
+              required />
+
+          </div>
+
+          <div>
+
+            <label>Telefono</label>
+
+            <input type="tel"
+              placeholder="+39 000000000" />
+
+          </div>
+
+        </div>
+
+        <label>Email</label>
+
+        <input type="email"
+          placeholder="email@gmail.com" />
+
+        <label>Note aggiuntive</label>
+
+        <textarea rows="3"
+          placeholder="Scrivi qui..."></textarea>
+
+        <button class="btn-invia"
+          type="submit">
+
+          Invia iscrizione
+
+        </button>
+
+      </form>
+
     </div>
+  </div>
 
-    <script>
-      function show(id) {
-        document.getElementById("home").style.display = "none";
-        document
-          .querySelectorAll(".content")
-          .forEach((c) => (c.style.display = "none"));
-        document.getElementById(id).style.display = "block";
-      }
+  <!-- TOAST -->
 
-      function back() {
-        document
-          .querySelectorAll(".content")
-          .forEach((c) => (c.style.display = "none"));
-        document.getElementById("home").style.display = "flex";
-      }
+  <div class="toast"
+    id="toast">
 
-      let currentSlide = 0;
-      function moveSlide(direction) {
-        const slideContainer = document.getElementById("carouselSlide");
-        const slides = slideContainer.querySelectorAll("img");
-        const totalSlides = slides.length;
+    Iscrizione salvata!
 
-        if (totalSlides === 0) return;
+  </div>
 
-        currentSlide += direction;
+  <script>
 
-        if (currentSlide < 0) {
-          currentSlide = totalSlides - 1;
-        } else if (currentSlide >= totalSlides) {
-          currentSlide = 0;
-        }
+    function show(id) {
 
-        slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-      }
+      document.getElementById("home")
+        .style.display = "none";
 
-      /* ===== ISCRIZIONI (localStorage) ===== */
-      function apriIscrizione() {
-        document.getElementById("modalIscrizione").classList.add("open");
-      }
-
-      function chiudiIscrizione() {
-        document.getElementById("modalIscrizione").classList.remove("open");
-      }
-
-      // Chiudi cliccando fuori dal box
       document
-        .getElementById("modalIscrizione")
-        .addEventListener("click", function (e) {
-          if (e.target === this) chiudiIscrizione();
-        });
-
-      function salvaIscrizione(e) {
-        e.preventDefault();
-
-        const nuovaIscrizione = {
-          id: Date.now(),
-          nome: document.getElementById("iscNome").value.trim(),
-          cognome: document.getElementById("iscCognome").value.trim(),
-          eta: document.getElementById("iscEta").value,
-          telefono: document.getElementById("iscTelefono").value.trim(),
-          email: document.getElementById("iscEmail").value.trim(),
-          note: document.getElementById("iscNote").value.trim(),
-          data: new Date().toLocaleString("it-IT"),
-        };
-
-        // Carica le iscrizioni esistenti, aggiunge la nuova, risalva
-        const iscrizioni = JSON.parse(
-          localStorage.getItem("campoScuolaIscrizioni") || "[]",
-        );
-        iscrizioni.push(nuovaIscrizione);
-        localStorage.setItem(
-          "campoScuolaIscrizioni",
-          JSON.stringify(iscrizioni),
+        .querySelectorAll(".content")
+        .forEach(c =>
+          c.style.display = "none"
         );
 
-        // Reset form e chiudi
-        document.getElementById("formIscrizione").reset();
-        chiudiIscrizione();
-        mostraToast();
-        aggiornaListaIscritti();
+      document.getElementById(id)
+        .style.display = "block";
+    }
+
+    function back() {
+
+      document
+        .querySelectorAll(".content")
+        .forEach(c =>
+          c.style.display = "none"
+        );
+
+      document.getElementById("home")
+        .style.display = "flex";
+    }
+
+    // CAROSELLO
+
+    let currentSlide = 0;
+
+    function aggiornaCounter() {
+
+      const slides =
+        document.querySelectorAll(
+          "#carouselSlide img"
+        );
+
+      const totale = slides.length;
+
+      document.getElementById(
+        "fotoCounter"
+      ).textContent =
+        `${currentSlide + 1} / ${totale}`;
+    }
+
+    function moveSlide(direction) {
+
+      const slideContainer =
+        document.getElementById(
+          "carouselSlide"
+        );
+
+      const slides =
+        slideContainer.querySelectorAll(
+          "img"
+        );
+
+      const totalSlides =
+        slides.length;
+
+      currentSlide += direction;
+
+      if (currentSlide < 0) {
+
+        currentSlide =
+          totalSlides - 1;
       }
 
-      function mostraToast() {
-        const t = document.getElementById("toast");
-        t.classList.add("show");
-        setTimeout(() => t.classList.remove("show"), 3000);
+      if (currentSlide >= totalSlides) {
+
+        currentSlide = 0;
       }
 
-      /* Lista iscritti pubblica (solo nome + data) */
-      function aggiornaListaIscritti() {
-        const contenitore = document.getElementById("listaIscritti");
-        const iscrizioni = JSON.parse(localStorage.getItem("campoScuolaIscrizioni") || "[]");
+      slideContainer.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
 
-        if (iscrizioni.length === 0) {
-          contenitore.innerHTML = '<p class="lista-vuota">Nessun iscritto ancora.</p>';
-          return;
+      aggiornaCounter();
+    }
+
+    aggiornaCounter();
+
+    // MODALE
+
+    function apriIscrizione() {
+
+      document
+        .getElementById(
+          "modalIscrizione"
+        )
+        .classList.add("open");
+    }
+
+    function chiudiIscrizione() {
+
+      document
+        .getElementById(
+          "modalIscrizione"
+        )
+        .classList.remove("open");
+    }
+
+    // CLICK FUORI
+
+    document
+      .getElementById(
+        "modalIscrizione"
+      )
+      .addEventListener(
+        "click",
+        function (e) {
+
+          if (e.target === this) {
+
+            chiudiIscrizione();
+          }
         }
+      );
 
-        // Mostra dal più recente, solo nome + cognome + data (niente dati sensibili)
-        contenitore.innerHTML = [...iscrizioni].reverse().map(i => {
-          const iniziali = (i.nome[0] || "?") + (i.cognome[0] || "?");
-          const data = i.data ? i.data.split(",")[0] : ""; // solo la data, non l'ora
-          return `
-            <div class="iscritto-chip">
-              <div class="iscritto-avatar">${iniziali.toUpperCase()}</div>
-              <span class="iscritto-nome">${i.nome} ${i.cognome}</span>
-              <span class="iscritto-data">${data}</span>
-            </div>`;
-        }).join("");
-      }
+    // SALVATAGGIO
 
-      // Aggiorna lista al caricamento pagina
-      aggiornaListaIscritti();
+    function salvaIscrizione(e) {
 
-      /*
-       * COME ESPORTARE LE ISCRIZIONI:
-       * Apri la console del browser (F12 > Console) e digita:
-       *   JSON.parse(localStorage.getItem('campoScuolaIscrizioni'))
-       */
-    </script>
-  </body>
+      e.preventDefault();
+
+      document
+        .getElementById(
+          "formIscrizione"
+        )
+        .reset();
+
+      chiudiIscrizione();
+
+      mostraToast();
+    }
+
+    // TOAST
+
+    function mostraToast() {
+
+      const t =
+        document.getElementById(
+          "toast"
+        );
+
+      t.classList.add("show");
+
+      setTimeout(() => {
+
+        t.classList.remove("show");
+
+      }, 3000);
+    }
+
+  </script>
+
+</body>
+
 </html>
