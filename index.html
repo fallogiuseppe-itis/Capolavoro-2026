@@ -441,48 +441,90 @@
 
     <p>Dai giovani e per i giovani</p>
 
-    <div class="menu">
+      <div class="menu">
+        <button onclick="show('prefazione')">Prefazione</button>
+        <button onclick="show('intro')">Introduzione</button>
+        <button onclick="show('storia')">La Storia</button>
+        <button onclick="show('format')">Il Format</button>
+        <button onclick="show('animatori')">Gruppo Animatori</button>
+        <button onclick="show('esperienza')">La Mia Esperienza</button>
+        <button onclick="show('galleria')">Galleria</button>
+        <button class="btn-iscrizione" onclick="apriIscrizione()">
+          Iscriviti al Campo Scuola
+        </button>
+      </div>
 
-      <button onclick="show('intro')">
-        Introduzione
-      </button>
-
-      <button onclick="show('storia')">
-        La Storia
-      </button>
-
-      <button onclick="show('format')">
-        Il Format
-      </button>
-
-      <button onclick="show('animatori')">
-        Gruppo Animatori
-      </button>
-
-      <button onclick="show('esperienza')">
-        La Mia Esperienza
-      </button>
-
-      <button onclick="show('galleria')">
-        Galleria
-      </button>
-
-      <button class="btn-iscrizione"
-        onclick="apriIscrizione()">
-
-        Iscriviti al Campo Scuola
-
-      </button>
-
+      <!-- LISTA ISCRITTI -->
+      <div class="lista-iscritti">
+        <h3>Iscritti</h3>
+        <div class="lista-scroll" id="listaIscritti">
+          <p class="lista-vuota">Nessun iscritto ancora.</p>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <!-- MODALE ISCRIZIONE -->
+    <div class="modal-overlay" id="modalIscrizione">
+      <div class="modal-box">
+        <button class="modal-close" onclick="chiudiIscrizione()">X</button>
+        <h2>Iscrizione</h2>
+        <p class="subtitle">Compila il modulo per iscriverti al Campo Scuola</p>
+
+        <form id="formIscrizione" onsubmit="salvaIscrizione(event)">
+          <div class="row-2">
+            <div>
+              <label for="iscNome">Nome *</label>
+              <input id="iscNome" type="text" placeholder="Mario" required />
+            </div>
+            <div>
+              <label for="iscCognome">Cognome *</label>
+              <input id="iscCognome" type="text" placeholder="Rossi" required />
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div>
+              <label for="iscEta">Età *</label>
+              <input
+                id="iscEta"
+                type="number"
+                placeholder="14"
+                min="6"
+                max="99"
+                required
+              />
+            </div>
+            <div>
+              <label for="iscTelefono">Telefono</label>
+              <input
+                id="iscTelefono"
+                type="tel"
+                placeholder="+39 000 0000000"
+              />
+            </div>
+          </div>
+
+          <label for="iscEmail">Email</label>
+          <input id="iscEmail" type="email" placeholder="mario@email.com" />
+
+          <label for="iscNote">Note aggiuntive</label>
+          <textarea
+            id="iscNote"
+            rows="3"
+            placeholder="Allergie, esigenze particolari..."
+          ></textarea>
+
+          <button class="btn-invia" type="submit">Invia iscrizione</button>
+        </form>
+      </div>
+    </div>
 
     <!-- TOAST NOTIFICA -->
     <div class="toast" id="toast">Iscrizione salvata!</div>
 
     <div class="content" id="intro">
       <div class="card">
-        <h2>Introduzione</h2>
+        <h2>Introduzione:</h2>
         <p>
           Il campo scuola è un momento di aggregazione tra giovani e bambini, in
           cui si concentrano giochi,risate e anche pianti tutto però con un base
@@ -541,8 +583,7 @@ In questo modo vengono incoraggiati a mettersi in gioco, sfidando sé stessi e g
           attività giornaliere sono tutti i momenti in cui preghiamo:la messa,le
           preghiere durante tutta la giornata e soprattutto l'adorazione
           dell'ultima notte. Cercando di far tornare a casa i bambini con un bel
-          ricordo del campo scuola e sperando che siano testimoni con i propri
-          familiari e amici.
+          ricordo del campo scuola e sperando che siano testimoni attivi e sinceri con i propri familiari ed amici.
         </p>
 
       <button class="back"
@@ -552,6 +593,14 @@ In questo modo vengono incoraggiati a mettersi in gioco, sfidando sé stessi e g
 
       </button>
 
+    </div>
+  </div>
+
+  <div class="content" id="prefazione">
+    <div class="card">
+      <h2>Prefazione</h2>
+      <p>Ciao</p>
+      <button class="back" onclick="back()">Torna alla Home</button>
     </div>
   </div>
 
@@ -586,12 +635,10 @@ I ruoli principali sono:
           </li>
         </ul>
 
-        Torna alla Home
+        <button class="back" onclick="back()">Torna alla Home</button>
 
-      </button>
-
+      </div>
     </div>
-  </div>
 
   <!-- ESPERIENZA -->
 
@@ -604,10 +651,8 @@ I ruoli principali sono:
         <p>
           Tutto cominciò nel 2022 quando un mio caro amico mi spinse a fare il
           campo e fui accolto da questa meravigliosa e grandissima famiglia. Qui
-          ho ritrovato me stesso in una veste nuova, non più il ragazzo che si
-          nascondeva in quello che gli altri volevano da lui ma piuttosto un
-          ragazzo autentico, più consapevole delle sue qualità.questa esperienza
-          mi ha portato negli anni a fare altre esperienze simili come il
+          ho ritrovato me stesso in una veste nuova, non più il ragazzo timido,insicuro e impacciato.
+          Questa esperienza mi ha portato negli anni a fare altre esperienze simili come il
           catechista,il portantino, membro del comitato di Maria SS.Addolorata e
           altre mille cose.
         </p>
@@ -625,69 +670,29 @@ I ruoli principali sono:
 
       <h2>Galleria</h2>
 
-      <div class="carousel-container">
-
-        <!-- COUNTER -->
-
-        <div class="foto-counter"
-          id="fotoCounter">
-
-          1 / 12
-
+        <div class="carousel-container">
+          <div class="carousel-slide" id="carouselSlide">
+            <img src="immagini/foto1.jpeg" alt="Foto 1" />
+            <img src="immagini/foto2.jpeg" alt="Foto 2" />
+            <img src="immagini/foto3.jpeg" alt="Foto 3" />
+            <img src="immagini/foto4.jpeg" alt="Foto 4" />
+            <img src="immagini/foto5.jpeg" alt="Foto 5" />
+            <img src="immagini/foto9.jpeg" alt="Foto 9" />
+            <img src="immagini/foto10.jpeg" alt="Foto 10" />
+            <img src="immagini/foto12.jpeg" alt="Foto 12" />
+            <img src="immagini/foto13.jpeg" alt="Foto 13" />
+            <img src="immagini/foto14.jpeg" alt="Foto 14" />
+            <img src="immagini/foto15.jpeg" alt="Foto 15" />
+            <img src="immagini/foto16.jpeg" alt="Foto 16" />
+          </div>
+          <div class="foto-counter" id="fotoCounter">1 / 1</div>
+          <button class="carousel-btn prev" onclick="moveSlide(-1)">
+            &#10094;
+          </button>
+          <button class="carousel-btn next" onclick="moveSlide(1)">
+            &#10095;
+          </button>
         </div>
-
-        <!-- FOTO -->
-
-        <div class="carousel-slide"
-          id="carouselSlide">
-
-          <img src="immagini/foto1.jpeg"
-            alt="Foto 1" />
-
-          <img src="immagini/foto2.jpeg"
-            alt="Foto 2" />
-
-          <img src="immagini/foto4.jpeg"
-            alt="Foto 3" />
-
-          <img src="immagini/foto5.jpeg"
-            alt="Foto 4" />
-
-          <img src="immagini/foto9.jpeg"
-            alt="Foto 5" />
-
-
-          <img src="immagini/foto12.jpeg"
-            alt="Foto 6" />
-
-          <img src="immagini/foto14.jpeg"
-            alt="Foto 7" />
-
-          <img src="immagini/foto15.jpeg"
-            alt="Foto 8" />
-
-          <img src="immagini/foto16.jpeg"
-            alt="Foto 9" />
-
-        </div>
-
-        <!-- FRECCE -->
-
-        <button class="carousel-btn prev"
-          onclick="moveSlide(-1)">
-
-          &#10094;
-
-        </button>
-
-        <button class="carousel-btn next"
-          onclick="moveSlide(1)">
-
-          &#10095;
-
-        </button>
-
-      </div>
 
       <button class="back"
         onclick="back()">
@@ -700,106 +705,11 @@ I ruoli principali sono:
   </div>
 
   <!-- MODALE ISCRIZIONE -->
-
-  <div class="modal-overlay"
-    id="modalIscrizione">
-
-    <div class="modal-box">
-
-      <button class="modal-close"
-        onclick="chiudiIscrizione()">
-
-        X
-
-      </button>
-
-      <h2>Iscrizione</h2>
-
-      <p class="subtitle">
-        Compila il modulo per iscriverti
-        al Campo Scuola
-      </p>
-
-      <form id="formIscrizione"
-        onsubmit="salvaIscrizione(event)">
-
-        <div class="row-2">
-
-          <div>
-
-            <label>Nome *</label>
-
-            <input type="text"
-              placeholder="Mario"
-              required />
-
-          </div>
-
-          <div>
-
-            <label>Cognome *</label>
-
-            <input type="text"
-              placeholder="Rossi"
-              required />
-
-          </div>
-
-        </div>
-
-        <div class="row-2">
-
-          <div>
-
-            <label>Età *</label>
-
-            <input type="number"
-              placeholder="14"
-              required />
-
-          </div>
-
-          <div>
-
-            <label>Telefono</label>
-
-            <input type="tel"
-              placeholder="+39 000000000" />
-
-          </div>
-
-        </div>
-
-        <label>Email</label>
-
-        <input type="email"
-          placeholder="email@gmail.com" />
-
-        <label>Note aggiuntive</label>
-
-        <textarea rows="3"
-          placeholder="Scrivi qui..."></textarea>
-
-        <button class="btn-invia"
-          type="submit">
-
-          Invia iscrizione
-
-        </button>
-
-      </form>
-
-    </div>
-  </div>
+  <!-- (modale duplicata rimossa) -->
 
   <!-- TOAST -->
 
-  <div class="toast"
-    id="toast">
-
-    Iscrizione salvata!
-
-  </div>
+  <!-- (toast duplicato rimosso) -->
 
   <script>
 
@@ -979,6 +889,8 @@ I ruoli principali sono:
 
       // Aggiorna lista al caricamento pagina
       aggiornaListaIscritti();
+      // Aggiorna il contatore del carosello (se presente)
+      if (typeof aggiornaCounter === 'function') aggiornaCounter();
 
       /*
        * COME ESPORTARE LE ISCRIZIONI:
@@ -988,5 +900,4 @@ I ruoli principali sono:
     </script>
   </body>
 </html>
-
 </html>
