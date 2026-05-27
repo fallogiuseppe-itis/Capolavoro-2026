@@ -101,6 +101,87 @@
       transform: translateY(-2px);
     }
 
+    .lista-iscritti {
+      margin: 40px auto 0;
+      padding: 22px 24px;
+      max-width: 680px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+    }
+
+    .lista-iscritti h3 {
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .lista-count {
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+    }
+
+    .lista-scroll {
+      display: grid;
+      gap: 12px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .lista-vuota {
+      color: rgba(255, 255, 255, 0.75);
+      text-align: center;
+      padding: 16px 0;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+    }
+
+    .iscritto-chip {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .iscritto-chip:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .iscritto-avatar {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1565c0, #42a5f5);
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .iscritto-info {
+      display: grid;
+      gap: 4px;
+    }
+
+    .iscritto-nome {
+      font-weight: 600;
+      color: white;
+    }
+
+    .iscritto-data {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
     /* SEZIONI */
 
     .content {
@@ -458,6 +539,7 @@
       <!-- LISTA ISCRITTI -->
       <div class="lista-iscritti">
         <h3>Iscritti</h3>
+        <p class="lista-count" id="listaCount">0 iscritti</p>
         <div class="lista-scroll" id="listaIscritti">
           <p class="lista-vuota">Nessun iscritto ancora.</p>
         </div>
@@ -861,7 +943,10 @@ I ruoli principali sono:
         const contenitore = document.getElementById("listaIscritti");
         const iscrizioni = JSON.parse(localStorage.getItem("campoScuolaIscrizioni") || "[]");
 
-        if (iscrizioni.length === 0) {
+        const totale = iscrizioni.length;
+        document.getElementById("listaCount").textContent = `${totale} iscritt${totale === 1 ? "o" : "i"}`;
+
+        if (totale === 0) {
           contenitore.innerHTML = '<p class="lista-vuota">Nessun iscritto ancora.</p>';
           return;
         }
@@ -873,8 +958,10 @@ I ruoli principali sono:
           return `
             <div class="iscritto-chip">
               <div class="iscritto-avatar">${iniziali.toUpperCase()}</div>
-              <span class="iscritto-nome">${i.nome} ${i.cognome}</span>
-              <span class="iscritto-data">${data}</span>
+              <div class="iscritto-info">
+                <span class="iscritto-nome">${i.nome} ${i.cognome}</span>
+                <span class="iscritto-data">${data}</span>
+              </div>
             </div>`;
         }).join("");
       }
